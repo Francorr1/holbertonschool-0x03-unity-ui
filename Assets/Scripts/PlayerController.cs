@@ -36,7 +36,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -50,6 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             health -= 1;
             Debug.Log("Health: " + health);
+        }
+        if (other.gameObject.tag == "Goal")
+        {
+            Debug.Log("You Win!");
         }
     }
 }
