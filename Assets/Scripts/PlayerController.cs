@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
             winLoseText.color = Color.white;
             winLoseBG.color = Color.red;
             winLoseBG.enabled = true;
-            Application.LoadLevel(Application.loadedLevel);
+            StartCoroutine(LoadScene(3));
         }
     }
     void OnTriggerEnter(Collider other)
@@ -70,6 +71,7 @@ public class PlayerController : MonoBehaviour
             winLoseText.color = Color.black;
             winLoseBG.color = Color.green;
             winLoseBG.enabled = true;
+            StartCoroutine(LoadScene(3));
         }
     }
     void SetScoreText()
@@ -79,5 +81,10 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = "Health: " + health;
+    }
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
