@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
             winLoseBG.enabled = true;
             StartCoroutine(LoadScene(3));
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
     void OnTriggerEnter(Collider other)
     {
