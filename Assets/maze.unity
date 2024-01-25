@@ -2761,6 +2761,8 @@ MonoBehaviour:
   health: 5
   scoreText: {fileID: 691031953}
   healthText: {fileID: 96102103}
+  winLoseText: {fileID: 1377355839}
+  winLoseBG: {fileID: 2048071779}
 --- !u!54 &538421607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8330,7 +8332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2048071778
 RectTransform:
   m_ObjectHideFlags: 0

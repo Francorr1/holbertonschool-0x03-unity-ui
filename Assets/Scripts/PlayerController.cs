@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour
     public int health = 5;
     public Text scoreText;
     public Text healthText;
+    public Text winLoseText;
+    public Image winLoseBG;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Rigidbody>();
+        winLoseBG.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,7 +44,10 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log("Game Over!");
+            winLoseText.text = "Game Over!";
+            winLoseText.color = Color.white;
+            winLoseBG.color = Color.red;
+            winLoseBG.enabled = true;
             Application.LoadLevel(Application.loadedLevel);
         }
     }
@@ -60,7 +66,10 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Goal")
         {
-            Debug.Log("You Win!");
+            winLoseText.text = "You Win!";
+            winLoseText.color = Color.black;
+            winLoseBG.color = Color.green;
+            winLoseBG.enabled = true;
         }
     }
     void SetScoreText()
